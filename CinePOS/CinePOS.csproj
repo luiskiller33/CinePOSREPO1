@@ -123,6 +123,12 @@
     <Compile Include="FormInicio.Designer.cs">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMenuBoletos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuBoletos.Designer.cs">
+      <DependentUpon>FormMenuBoletos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVentaBoletos.cs">
       <SubType>Form</SubType>
     </Compile>

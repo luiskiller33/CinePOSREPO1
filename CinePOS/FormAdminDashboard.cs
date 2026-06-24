@@ -95,5 +95,16 @@ namespace CinePOS
             label2.Text = "Bienvenido: " + usuariologueado;
 
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AbrirFormPanel(new FormMenuBoletos());
+
+        }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -36,9 +37,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -57,9 +58,24 @@
             this.panelMenu.Size = new System.Drawing.Size(179, 479);
             this.panelMenu.TabIndex = 1;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.Brown;
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(0, 451);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(179, 28);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "EXIT";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Location = new System.Drawing.Point(3, 199);
             this.groupBox2.Name = "groupBox2";
@@ -67,6 +83,7 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ventas";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // button3
             // 
@@ -135,20 +152,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(783, 446);
             this.panelContenedor.TabIndex = 2;
             // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.Brown;
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(0, 451);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(179, 28);
-            this.btnSalir.TabIndex = 6;
-            this.btnSalir.Text = "EXIT";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -167,6 +170,18 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(308, 22);
             this.label2.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Yellow;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Location = new System.Drawing.Point(6, 94);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(158, 48);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "MENU BOLETOS";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FormAdminDashboard
             // 
@@ -203,5 +218,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button4;
     }
 }
