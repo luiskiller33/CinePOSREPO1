@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\",
   "Documents": [
     {
@@ -13,6 +14,21 @@
     {
       "AbsoluteMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|c:\\users\\ljorg\\desktop\\cineposrepo1\\cinepos\\formmenuboletos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|solutionrelative:formmenuboletos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+=======
+  "WorkspaceRootPath": "C:\\Users\\Pablo\\OneDrive\\Documentos\\Tareas UADY\\Verano 4.5\\POO\\CinePoosss\\CinePOSREPO1\\CinePOS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|c:\\users\\pablo\\onedrive\\documentos\\tareas uady\\verano 4.5\\poo\\cinepoosss\\cineposrepo1\\cinepos\\formventaboletos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|solutionrelative:formventaboletos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|c:\\users\\pablo\\onedrive\\documentos\\tareas uady\\verano 4.5\\poo\\cinepoosss\\cineposrepo1\\cinepos\\formventaboletos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|solutionrelative:formventaboletos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|c:\\users\\pablo\\onedrive\\documentos\\tareas uady\\verano 4.5\\poo\\cinepoosss\\cineposrepo1\\cinepos\\formventaboletos.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|solutionrelative:formventaboletos.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> ce542337b2f45dd99f7710dab6db4907514157d0
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 5,
+=======
+          "SelectedChildIndex": 4,
+>>>>>>> ce542337b2f45dd99f7710dab6db4907514157d0
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,6 +59,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+<<<<<<< HEAD
               "Title": "FormMenuBoletos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormMenuBoletos.cs",
               "RelativeDocumentMoniker": "FormMenuBoletos.cs",
@@ -59,10 +80,22 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-24T16:37:57.009Z",
               "EditorCaption": " [Dise\u00F1o]"
+=======
+              "Title": "FormVentaBoletos.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo\\OneDrive\\Documentos\\Tareas UADY\\Verano 4.5\\POO\\CinePoosss\\CinePOSREPO1\\CinePOS\\FormVentaBoletos.Designer.cs",
+              "RelativeDocumentMoniker": "FormVentaBoletos.Designer.cs",
+              "ToolTip": "C:\\Users\\Pablo\\OneDrive\\Documentos\\Tareas UADY\\Verano 4.5\\POO\\CinePoosss\\CinePOSREPO1\\CinePOS\\FormVentaBoletos.Designer.cs",
+              "RelativeToolTip": "FormVentaBoletos.Designer.cs",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAAABMBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T16:06:02.581Z",
+              "EditorCaption": ""
+>>>>>>> ce542337b2f45dd99f7710dab6db4907514157d0
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
               "Title": "FormAdminDashboard.cs",
               "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormAdminDashboard.cs",
               "RelativeDocumentMoniker": "FormAdminDashboard.cs",
@@ -72,6 +105,29 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-24T16:37:50.116Z",
               "EditorCaption": ""
+=======
+              "Title": "FormVentaBoletos.cs",
+              "DocumentMoniker": "C:\\Users\\Pablo\\OneDrive\\Documentos\\Tareas UADY\\Verano 4.5\\POO\\CinePoosss\\CinePOSREPO1\\CinePOS\\FormVentaBoletos.cs",
+              "RelativeDocumentMoniker": "FormVentaBoletos.cs",
+              "ToolTip": "C:\\Users\\Pablo\\OneDrive\\Documentos\\Tareas UADY\\Verano 4.5\\POO\\CinePoosss\\CinePOSREPO1\\CinePOS\\FormVentaBoletos.cs",
+              "RelativeToolTip": "FormVentaBoletos.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAQwMEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T16:05:42.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormVentaBoletos.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Pablo\\OneDrive\\Documentos\\Tareas UADY\\Verano 4.5\\POO\\CinePoosss\\CinePOSREPO1\\CinePOS\\FormVentaBoletos.cs",
+              "RelativeDocumentMoniker": "FormVentaBoletos.cs",
+              "ToolTip": "C:\\Users\\Pablo\\OneDrive\\Documentos\\Tareas UADY\\Verano 4.5\\POO\\CinePoosss\\CinePOSREPO1\\CinePOS\\FormVentaBoletos.cs [Design]",
+              "RelativeToolTip": "FormVentaBoletos.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T16:05:36.515Z",
+              "EditorCaption": " [Design]"
+>>>>>>> ce542337b2f45dd99f7710dab6db4907514157d0
             }
           ]
         }
