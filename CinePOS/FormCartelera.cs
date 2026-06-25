@@ -122,7 +122,7 @@ namespace CinePOS
                         btnHorario.Tag = f.ID_Funcion;
 
                         btnHorario.Click += (s, ev) => {
-                            FormVentaBoletos frm = new FormVentaBoletos(f.ID_Funcion);
+                            FormVentaBoletos2 frm = new FormVentaBoletos2(f.ID_Funcion);
                             frm.ShowDialog();
                         };
                         flpHorarios.Controls.Add(btnHorario);

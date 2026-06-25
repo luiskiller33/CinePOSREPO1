@@ -38,6 +38,7 @@ namespace CinePOS
             PnlSeatMap.Location = PnlBltEdad.Location;
             PnlSeatMap.Visible = false;
             VentaTipoSala();
+
         }
         private void VentaTipoSala()
         {

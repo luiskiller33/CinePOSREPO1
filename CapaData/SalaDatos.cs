@@ -68,6 +68,7 @@ namespace CapaData
 
                 return dt;
             }
+
         }
 
         public void EliminarSala(int idSala)
@@ -109,6 +110,7 @@ namespace CapaData
                         lista.Add(new Sala()
                         {
 
+
                             ID_Sala = Convert.ToInt32(dr["ID_Sala"]),
 
                             Nombre = dr["Nombre"].ToString(),
@@ -119,5 +121,36 @@ namespace CapaData
             }
             return lista;
         }
+
+        public string ObtenerTipo(int idSala) // para FormVentas
+        {
+            string tipo = "";
+            using (SQLiteConnection con = new Conexion().CrearConexion())
+            {
+                con.Open();
+                string query = "SELECT Tipo FROM Salas WHERE ID_Sala = @id";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", idSala);
+                    object resultado = cmd.ExecuteScalar();
+
+
+                    tipo = resultado != null ? resultado.ToString() : "2D";
+                }
+            }
+            return tipo;
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

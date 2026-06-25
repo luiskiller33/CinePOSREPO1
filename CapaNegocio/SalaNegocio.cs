@@ -45,5 +45,14 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
+        public string ObtenerTipoSala(int idSala)
+        {
+            // desde este metodo llama a capa datos para hacer un select en la tabla sala
+
+            SalaDatos cdSalas = new SalaDatos();
+
+            return cdSalas.ObtenerTipo(idSala);
+        }
+
     }
 }
