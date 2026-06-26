@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.PnlEdad = new System.Windows.Forms.Panel();
-            this.PnlGeneral = new System.Windows.Forms.Panel();
-            this.UpDownGeneral = new System.Windows.Forms.NumericUpDown();
-            this.lblPrecioGeneral = new System.Windows.Forms.Label();
             this.UpDownNiño = new System.Windows.Forms.NumericUpDown();
             this.UpDownAdto = new System.Windows.Forms.NumericUpDown();
             this.lblPrecioNiño = new System.Windows.Forms.Label();
             this.lblPrecioAdulto = new System.Windows.Forms.Label();
+            this.PnlGeneral = new System.Windows.Forms.Panel();
+            this.UpDownGeneral = new System.Windows.Forms.NumericUpDown();
+            this.lblPrecioGeneral = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.NumDesactivados = new System.Windows.Forms.NumericUpDown();
-            this.NumOcupados = new System.Windows.Forms.NumericUpDown();
+            this.LblNumDisponibles = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnLimpiarCant = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LblTotal = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtnLimpiarAsientos = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnCompra = new System.Windows.Forms.Button();
@@ -55,17 +55,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flyasientos = new System.Windows.Forms.FlowLayoutPanel();
-            this.NumDisponibles = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.LblNumOcupados = new System.Windows.Forms.Label();
+            this.LblNumDeshabilitados = new System.Windows.Forms.Label();
             this.PnlEdad.SuspendLayout();
-            this.PnlGeneral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownNiño)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownAdto)).BeginInit();
+            this.PnlGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownGeneral)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumDesactivados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumOcupados)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -83,34 +81,6 @@
             this.PnlEdad.Size = new System.Drawing.Size(248, 181);
             this.PnlEdad.TabIndex = 0;
             // 
-            // PnlGeneral
-            // 
-            this.PnlGeneral.Controls.Add(this.UpDownGeneral);
-            this.PnlGeneral.Controls.Add(this.lblPrecioGeneral);
-            this.PnlGeneral.Location = new System.Drawing.Point(4, 13);
-            this.PnlGeneral.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlGeneral.Name = "PnlGeneral";
-            this.PnlGeneral.Size = new System.Drawing.Size(248, 105);
-            this.PnlGeneral.TabIndex = 5;
-            // 
-            // UpDownGeneral
-            // 
-            this.UpDownGeneral.Location = new System.Drawing.Point(21, 47);
-            this.UpDownGeneral.Margin = new System.Windows.Forms.Padding(4);
-            this.UpDownGeneral.Name = "UpDownGeneral";
-            this.UpDownGeneral.Size = new System.Drawing.Size(87, 29);
-            this.UpDownGeneral.TabIndex = 3;
-            // 
-            // lblPrecioGeneral
-            // 
-            this.lblPrecioGeneral.AutoSize = true;
-            this.lblPrecioGeneral.Location = new System.Drawing.Point(17, 18);
-            this.lblPrecioGeneral.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPrecioGeneral.Name = "lblPrecioGeneral";
-            this.lblPrecioGeneral.Size = new System.Drawing.Size(64, 25);
-            this.lblPrecioGeneral.TabIndex = 0;
-            this.lblPrecioGeneral.Text = "label1";
-            // 
             // UpDownNiño
             // 
             this.UpDownNiño.Location = new System.Drawing.Point(23, 141);
@@ -118,6 +88,7 @@
             this.UpDownNiño.Name = "UpDownNiño";
             this.UpDownNiño.Size = new System.Drawing.Size(87, 29);
             this.UpDownNiño.TabIndex = 4;
+            this.UpDownNiño.ValueChanged += new System.EventHandler(this.UpDownNiño_ValueChanged);
             // 
             // UpDownAdto
             // 
@@ -126,6 +97,7 @@
             this.UpDownAdto.Name = "UpDownAdto";
             this.UpDownAdto.Size = new System.Drawing.Size(87, 29);
             this.UpDownAdto.TabIndex = 3;
+            this.UpDownAdto.ValueChanged += new System.EventHandler(this.UpDownAdto_ValueChanged);
             // 
             // lblPrecioNiño
             // 
@@ -147,12 +119,41 @@
             this.lblPrecioAdulto.TabIndex = 0;
             this.lblPrecioAdulto.Text = "label1";
             // 
+            // PnlGeneral
+            // 
+            this.PnlGeneral.Controls.Add(this.UpDownGeneral);
+            this.PnlGeneral.Controls.Add(this.lblPrecioGeneral);
+            this.PnlGeneral.Location = new System.Drawing.Point(4, 13);
+            this.PnlGeneral.Margin = new System.Windows.Forms.Padding(4);
+            this.PnlGeneral.Name = "PnlGeneral";
+            this.PnlGeneral.Size = new System.Drawing.Size(248, 105);
+            this.PnlGeneral.TabIndex = 5;
+            // 
+            // UpDownGeneral
+            // 
+            this.UpDownGeneral.Location = new System.Drawing.Point(21, 47);
+            this.UpDownGeneral.Margin = new System.Windows.Forms.Padding(4);
+            this.UpDownGeneral.Name = "UpDownGeneral";
+            this.UpDownGeneral.Size = new System.Drawing.Size(87, 29);
+            this.UpDownGeneral.TabIndex = 3;
+            this.UpDownGeneral.ValueChanged += new System.EventHandler(this.UpDownGeneral_ValueChanged);
+            // 
+            // lblPrecioGeneral
+            // 
+            this.lblPrecioGeneral.AutoSize = true;
+            this.lblPrecioGeneral.Location = new System.Drawing.Point(17, 18);
+            this.lblPrecioGeneral.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecioGeneral.Name = "lblPrecioGeneral";
+            this.lblPrecioGeneral.Size = new System.Drawing.Size(64, 25);
+            this.lblPrecioGeneral.TabIndex = 0;
+            this.lblPrecioGeneral.Text = "label1";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.PnlGeneral);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.BtnLimpiarCant);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.LblTotal);
             this.panel1.Controls.Add(this.PnlEdad);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -163,9 +164,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.NumDisponibles);
-            this.groupBox1.Controls.Add(this.NumDesactivados);
-            this.groupBox1.Controls.Add(this.NumOcupados);
+            this.groupBox1.Controls.Add(this.LblNumOcupados);
+            this.groupBox1.Controls.Add(this.LblNumDeshabilitados);
+            this.groupBox1.Controls.Add(this.LblNumDisponibles);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
@@ -178,31 +179,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Info Sala";
             // 
-            // NumDesactivados
+            // LblNumDisponibles
             // 
-            this.NumDesactivados.Location = new System.Drawing.Point(16, 310);
-            this.NumDesactivados.Margin = new System.Windows.Forms.Padding(4);
-            this.NumDesactivados.Maximum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
-            this.NumDesactivados.Name = "NumDesactivados";
-            this.NumDesactivados.Size = new System.Drawing.Size(144, 29);
-            this.NumDesactivados.TabIndex = 12;
-            // 
-            // NumOcupados
-            // 
-            this.NumOcupados.Location = new System.Drawing.Point(16, 183);
-            this.NumOcupados.Margin = new System.Windows.Forms.Padding(4);
-            this.NumOcupados.Maximum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
-            this.NumOcupados.Name = "NumOcupados";
-            this.NumOcupados.Size = new System.Drawing.Size(144, 29);
-            this.NumOcupados.TabIndex = 11;
+            this.LblNumDisponibles.AutoSize = true;
+            this.LblNumDisponibles.Location = new System.Drawing.Point(17, 67);
+            this.LblNumDisponibles.Name = "LblNumDisponibles";
+            this.LblNumDisponibles.Size = new System.Drawing.Size(64, 25);
+            this.LblNumDisponibles.TabIndex = 13;
+            this.LblNumDisponibles.Text = "label9";
             // 
             // label8
             // 
@@ -210,9 +194,9 @@
             this.label8.Location = new System.Drawing.Point(12, 267);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(211, 25);
+            this.label8.Size = new System.Drawing.Size(221, 25);
             this.label8.TabIndex = 9;
-            this.label8.Text = "Asientos Desactivados";
+            this.label8.Text = "Asientos Deshabilitados";
             // 
             // label6
             // 
@@ -245,15 +229,16 @@
             this.BtnLimpiarCant.UseVisualStyleBackColor = true;
             this.BtnLimpiarCant.Click += new System.EventHandler(this.BtnLimpiarCant_Click);
             // 
-            // label5
+            // LblTotal
             // 
-            this.label5.Location = new System.Drawing.Point(33, 822);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 34);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Total$";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblTotal.AutoSize = true;
+            this.LblTotal.Location = new System.Drawing.Point(33, 822);
+            this.LblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblTotal.Name = "LblTotal";
+            this.LblTotal.Size = new System.Drawing.Size(67, 25);
+            this.LblTotal.TabIndex = 2;
+            this.LblTotal.Text = "Total$";
+            this.LblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -284,7 +269,7 @@
             // 
             // BtnLimpiarAsientos
             // 
-            this.BtnLimpiarAsientos.Location = new System.Drawing.Point(1256, 62);
+            this.BtnLimpiarAsientos.Location = new System.Drawing.Point(913, 62);
             this.BtnLimpiarAsientos.Margin = new System.Windows.Forms.Padding(4);
             this.BtnLimpiarAsientos.Name = "BtnLimpiarAsientos";
             this.BtnLimpiarAsientos.Size = new System.Drawing.Size(243, 39);
@@ -292,6 +277,17 @@
             this.BtnLimpiarAsientos.Text = "Limpiar Selecciones";
             this.BtnLimpiarAsientos.UseVisualStyleBackColor = true;
             this.BtnLimpiarAsientos.Click += new System.EventHandler(this.BtnLimpiarAsientos_Click);
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label9.Location = new System.Drawing.Point(427, 39);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 34);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Dehabilitado";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -319,7 +315,7 @@
             // 
             // BtnCompra
             // 
-            this.BtnCompra.Location = new System.Drawing.Point(1256, 13);
+            this.BtnCompra.Location = new System.Drawing.Point(913, 13);
             this.BtnCompra.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCompra.Name = "BtnCompra";
             this.BtnCompra.Size = new System.Drawing.Size(243, 39);
@@ -375,25 +371,23 @@
             this.flyasientos.Size = new System.Drawing.Size(982, 487);
             this.flyasientos.TabIndex = 0;
             // 
-            // NumDisponibles
+            // LblNumOcupados
             // 
-            this.NumDisponibles.AutoSize = true;
-            this.NumDisponibles.Location = new System.Drawing.Point(17, 67);
-            this.NumDisponibles.Name = "NumDisponibles";
-            this.NumDisponibles.Size = new System.Drawing.Size(64, 25);
-            this.NumDisponibles.TabIndex = 13;
-            this.NumDisponibles.Text = "label9";
+            this.LblNumOcupados.AutoSize = true;
+            this.LblNumOcupados.Location = new System.Drawing.Point(17, 179);
+            this.LblNumOcupados.Name = "LblNumOcupados";
+            this.LblNumOcupados.Size = new System.Drawing.Size(64, 25);
+            this.LblNumOcupados.TabIndex = 14;
+            this.LblNumOcupados.Text = "label5";
             // 
-            // label9
+            // LblNumDeshabilitados
             // 
-            this.label9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(427, 39);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(124, 34);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Dehabilitado";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblNumDeshabilitados.AutoSize = true;
+            this.LblNumDeshabilitados.Location = new System.Drawing.Point(17, 292);
+            this.LblNumDeshabilitados.Name = "LblNumDeshabilitados";
+            this.LblNumDeshabilitados.Size = new System.Drawing.Size(64, 25);
+            this.LblNumDeshabilitados.TabIndex = 13;
+            this.LblNumDeshabilitados.Text = "label9";
             // 
             // FormVentaBoletos2
             // 
@@ -408,16 +402,15 @@
             this.Load += new System.EventHandler(this.FormVentaBoletos2_Load);
             this.PnlEdad.ResumeLayout(false);
             this.PnlEdad.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownNiño)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpDownAdto)).EndInit();
             this.PnlGeneral.ResumeLayout(false);
             this.PnlGeneral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownGeneral)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownNiño)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UpDownAdto)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumDesactivados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumOcupados)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -446,16 +439,16 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnLimpiarCant;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown NumDesactivados;
-        private System.Windows.Forms.NumericUpDown NumOcupados;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblPrecioNiño;
         private System.Windows.Forms.Panel PnlGeneral;
         private System.Windows.Forms.NumericUpDown UpDownGeneral;
         private System.Windows.Forms.Label lblPrecioGeneral;
-        private System.Windows.Forms.Label NumDisponibles;
+        private System.Windows.Forms.Label LblNumDisponibles;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label LblNumOcupados;
+        private System.Windows.Forms.Label LblNumDeshabilitados;
     }
 }

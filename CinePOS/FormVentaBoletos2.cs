@@ -32,6 +32,12 @@ namespace CinePOS
         private int CantBltNiño = 0;
         private int CantBltGeneral = 0;
 
+        private decimal PrecioTotalAdto = 0;
+        private decimal PrecioTotalNiño = 0;
+        private decimal PrecioTotalGeneral = 0;
+        private decimal PrecioTotal = 0;
+
+
 
         public FormVentaBoletos2(int idfuncion) // el constructor este va a recibir el ID de la funcion
         {
@@ -39,6 +45,7 @@ namespace CinePOS
 
             _idFuncion = idfuncion; // cuando presiono el btn de la de la funcion filtrada el constructor recibe el id
         }
+
         private void CargarDatosIniciales()
         {
             FuncionNegocio fNeg = new FuncionNegocio();
@@ -56,9 +63,15 @@ namespace CinePOS
 
             countDisponibles = todosLosAsientos.Count - countDesactivados - countOcupados;
 
-            NumDisponibles.Text = Convert.ToString(countDisponibles);
-            NumOcupados.Value = countOcupados;
-            NumDesactivados.Value = countDesactivados;
+            LblNumDisponibles.Text = Convert.ToString(countDisponibles);
+            LblNumOcupados.Text = Convert.ToString(countOcupados);
+            LblNumDeshabilitados.Text = Convert.ToString(countDesactivados);
+
+            UpDownGeneral.Maximum = countDisponibles;
+            UpDownAdto.Maximum = countDisponibles;
+            UpDownNiño.Maximum = countDisponibles;
+
+            LblTotal.Text = $"Total a Pagar : {PrecioTotal:C2}";
         }
 
         public void ConfigInterfaz()
@@ -91,31 +104,27 @@ namespace CinePOS
 
             if (esEspecial)
             {
-                lblPrecioGeneral.Text = $"${precios.PrecioEspecial:N2} c/u";
+                lblPrecioGeneral.Text = $"{precios.PrecioEspecial:C2} c/u";
             }
             else
             {
-                lblPrecioAdulto.Text = $"${precios.PrecioAdulto:N2} (Adulto)";
+                lblPrecioAdulto.Text = $"{precios.PrecioAdulto:C2} (Adulto)";
 
-                lblPrecioNiño.Text = $"${precios.PrecioNino:N2} (Niño)";
+                lblPrecioNiño.Text = $"{precios.PrecioNino:C2} (Niño)";
             }
         }
         private void BtnAsiento_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             Asiento asiento = (Asiento)btn.Tag;
+
             CantBltAdto = Convert.ToInt32(UpDownAdto.Value);
             CantBltNiño = Convert.ToInt32(UpDownNiño.Value);
             CantBltGeneral = Convert.ToInt32(UpDownGeneral.Value);
             CantBlts = CantBltAdto + CantBltNiño + CantBltGeneral;
 
             // Pintamos de colores los botones
-            if (btn.BackColor == Color.Gold)
-            {
-                btn.BackColor = Color.Lime; // lima si es deseleccionado 
-                asientosSeleccionados.Remove(asiento);
-            }
-            else 
+            if (btn.BackColor == Color.Lime) 
             {
                 if (asientosSeleccionados.Count >= CantBlts) // verificar que no se seleccionen más asientos de los que se van a pagar
                 {
@@ -123,7 +132,19 @@ namespace CinePOS
                     return;
                 }
                 btn.BackColor = Color.Gold; // Color seleccion
-                asientosSeleccionados.Add(asiento); 
+                asientosSeleccionados.Add(asiento);
+
+                LblNumDisponibles.Text = Convert.ToString(countDisponibles--);
+                LblNumOcupados.Text = Convert.ToString(countOcupados++);
+            }
+            else if (btn.BackColor == Color.Gold)
+            {
+                btn.BackColor = Color.Lime; // lima si es deseleccionado 
+                asientosSeleccionados.Remove(asiento);
+
+
+                LblNumDisponibles.Text = Convert.ToString(countDisponibles++);
+                LblNumOcupados.Text = Convert.ToString(countOcupados--);
             }
             // aqui puede ir la logica para actualizar el totañ segun la catnidadd seleccionadad de asients
         }
@@ -160,14 +181,14 @@ namespace CinePOS
                 btn.Tag = a;
 
                 //Aplicamos estados
-                if (a.Estado == 1) // desactivadp 
+                if (a.Estado == 1) // desactivado 
                 {
                     btn.BackColor = Color.DimGray;
                     btn.Enabled = false;
                 }
                 else if (ocupadosIds.Contains(a.ID_Asiento)) //ocuapdo
                 {
-                    btn.BackColor = Color.Yellow;
+                    btn.BackColor = Color.Red;
                     btn.Enabled = false;
                 }
                 else // dissponibles
@@ -211,6 +232,7 @@ namespace CinePOS
             UpDownNiño.Value = 0;
             UpDownGeneral.Value = 0;
             asientosSeleccionados.Clear();
+            CargarDatosIniciales();
             GenerarMapa();
         }
 
@@ -222,6 +244,61 @@ namespace CinePOS
                                 "Asientos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+        }
+
+        private void UpDownAdto_ValueChanged(object sender, EventArgs e)
+        {
+            FuncionNegocio fneg = new FuncionNegocio();
+            objFuncion = fneg.ObtenerDetalle(_idFuncion);
+            SalaNegocio sNeg = new SalaNegocio();
+            string tipoReal = sNeg.ObtenerTipoSala(objFuncion.ID_Sala);
+            PreciosNegocio pNeg = new PreciosNegocio();
+            var precios = pNeg.ObtenerPrecios(tipoReal);
+
+            CantBltAdto = Convert.ToInt32(UpDownAdto.Value);
+            CantBltNiño = Convert.ToInt32(UpDownNiño.Value);
+
+            PrecioTotalAdto = CantBltAdto * precios.PrecioAdulto;
+            PrecioTotalNiño = CantBltNiño * precios.PrecioNino;
+            PrecioTotal = PrecioTotalAdto + PrecioTotalNiño + PrecioTotalGeneral;
+
+            LblTotal.Text = $"Total a Pagar: {PrecioTotal:C2}";
+        }
+
+        private void UpDownNiño_ValueChanged(object sender, EventArgs e)
+        {
+            FuncionNegocio fneg = new FuncionNegocio();
+            objFuncion = fneg.ObtenerDetalle(_idFuncion);
+            SalaNegocio sNeg = new SalaNegocio();
+            string tipoReal = sNeg.ObtenerTipoSala(objFuncion.ID_Sala);
+            PreciosNegocio pNeg = new PreciosNegocio();
+            var precios = pNeg.ObtenerPrecios(tipoReal);
+
+            CantBltAdto = Convert.ToInt32(UpDownAdto.Value);
+            CantBltNiño = Convert.ToInt32(UpDownNiño.Value);
+
+            PrecioTotalAdto = CantBltAdto * precios.PrecioAdulto;
+            PrecioTotalNiño = CantBltNiño * precios.PrecioNino;
+            PrecioTotal = PrecioTotalAdto + PrecioTotalNiño + PrecioTotalGeneral;
+
+            LblTotal.Text = $"Total a Pagar: {PrecioTotal:C2}";
+        }
+
+        private void UpDownGeneral_ValueChanged(object sender, EventArgs e)
+        {
+            FuncionNegocio fneg = new FuncionNegocio();
+            objFuncion = fneg.ObtenerDetalle(_idFuncion);
+            SalaNegocio sNeg = new SalaNegocio();
+            string tipoReal = sNeg.ObtenerTipoSala(objFuncion.ID_Sala);
+            PreciosNegocio pNeg = new PreciosNegocio();
+            var precios = pNeg.ObtenerPrecios(tipoReal);
+            CantBltGeneral = Convert.ToInt32(UpDownGeneral.Value);
+            
+            MessageBox.Show($"Detecta precio= [{CantBltGeneral}][{precios.PrecioEspecial}]");
+
+            PrecioTotalGeneral = CantBltGeneral * precios.PrecioEspecial;
+
+            LblTotal.Text = $"Total a Pagar: {PrecioTotalGeneral:N2}";
         }
     }
 }
