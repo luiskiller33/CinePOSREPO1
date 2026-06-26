@@ -80,8 +80,8 @@ namespace CinePOS
         {
             txtNombreSala.Clear();
             cmbTipoSala.SelectedIndex = -1; // esto nos quita la seleccion del combobox
-            numFilas.Value = 1;
-            numColumnas.Value = 1;
+            numFilas.Value = 5;
+            numColumnas.Value = 5;
             txtNombreSala.Focus();
 
             dgvSalas.ClearSelection();

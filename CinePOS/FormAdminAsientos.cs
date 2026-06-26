@@ -68,7 +68,7 @@ namespace CinePOS
                 btn.Tag = a;
 
                 // para los colores segun el estado 
-                btn.BackColor = (a.Estado == 1) ? Color.Gray : Color.Green;
+                btn.BackColor = (a.Estado == 1) ? Color.Gray : Color.Lime;
 
                 btn.Click += (s, e) => {
                     Asiento asientoSeleccionado = (Asiento)((Button)s).Tag;

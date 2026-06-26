@@ -29,14 +29,3 @@ C:\Users\ljorg\Desktop\gitCinePOS\CapaData\obj\Debug\CapaData.csproj.CoreCompile
 C:\Users\ljorg\Desktop\gitCinePOS\CapaData\obj\Debug\CapaData.csproj.Up2Date
 C:\Users\ljorg\Desktop\gitCinePOS\CapaData\obj\Debug\CapaData.dll
 C:\Users\ljorg\Desktop\gitCinePOS\CapaData\obj\Debug\CapaData.pdb
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\bin\Debug\CapaData.dll
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\bin\Debug\CapaData.pdb
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\bin\Debug\CapaEntidad.dll
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\bin\Debug\System.Data.SQLite.dll
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\bin\Debug\CapaEntidad.pdb
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\bin\Debug\System.Data.SQLite.xml
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\obj\Debug\CapaData.csproj.AssemblyReference.cache
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\obj\Debug\CapaData.csproj.CoreCompileInputs.cache
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\obj\Debug\CapaData.csproj.Up2Date
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\obj\Debug\CapaData.dll
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaData\obj\Debug\CapaData.pdb

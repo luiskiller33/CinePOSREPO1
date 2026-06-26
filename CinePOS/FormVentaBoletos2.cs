@@ -27,6 +27,12 @@ namespace CinePOS
         private int countOcupados = 0;
         private int countDesactivados = 0;
 
+        private int CantBlts = 0;
+        private int CantBltAdto = 0;
+        private int CantBltNiño = 0;
+        private int CantBltGeneral = 0;
+
+
         public FormVentaBoletos2(int idfuncion) // el constructor este va a recibir el ID de la funcion
         {
             InitializeComponent();
@@ -50,7 +56,7 @@ namespace CinePOS
 
             countDisponibles = todosLosAsientos.Count - countDesactivados - countOcupados;
 
-            NumDisponibles.Value = countDisponibles;
+            NumDisponibles.Text = Convert.ToString(countDisponibles);
             NumOcupados.Value = countOcupados;
             NumDesactivados.Value = countDesactivados;
         }
@@ -80,38 +86,45 @@ namespace CinePOS
 
             bool esEspecial = precios.PrecioEspecial > 0;
 
-            PnlEDAD.Visible = !esEspecial;
+            PnlEdad.Visible = !esEspecial;
             PnlGeneral.Visible = esEspecial;
 
             if (esEspecial)
             {
-                lblPrecioGeneral.Text = $"{precios.PrecioEspecial:C2} c/u";
+                lblPrecioGeneral.Text = $"${precios.PrecioEspecial:N2} c/u";
             }
             else
             {
-                lblPrecioAdulto.Text = $"{precios.PrecioAdulto:C2} (Adulto)";
+                lblPrecioAdulto.Text = $"${precios.PrecioAdulto:N2} (Adulto)";
 
-                lblPrecioNiño.Text = $"{precios.PrecioNino:C2} (Niño)";
+                lblPrecioNiño.Text = $"${precios.PrecioNino:N2} (Niño)";
             }
         }
         private void BtnAsiento_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             Asiento asiento = (Asiento)btn.Tag;
+            CantBltAdto = Convert.ToInt32(UpDownAdto.Value);
+            CantBltNiño = Convert.ToInt32(UpDownNiño.Value);
+            CantBltGeneral = Convert.ToInt32(UpDownGeneral.Value);
+            CantBlts = CantBltAdto + CantBltNiño + CantBltGeneral;
 
             // Pintamos de colores los botones
-            if (btn.BackColor == Color.Lime)
-            {
-                btn.BackColor = Color.Gold; // color de seleccion 
-
-                asientosSeleccionados.Add(asiento);
-            }
-            else if (btn.BackColor == Color.Gold)
+            if (btn.BackColor == Color.Gold)
             {
                 btn.BackColor = Color.Lime; // lima si es deseleccionado 
-                asientosSeleccionados.RemoveAll(x => x.ID_Asiento == asiento.ID_Asiento);
+                asientosSeleccionados.Remove(asiento);
             }
-
+            else 
+            {
+                if (asientosSeleccionados.Count >= CantBlts) // verificar que no se seleccionen más asientos de los que se van a pagar
+                {
+                    MessageBox.Show($"Ya seleccionó los {CantBlts} asientos indicados.", "Límite alcanzado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                btn.BackColor = Color.Gold; // Color seleccion
+                asientosSeleccionados.Add(asiento); 
+            }
             // aqui puede ir la logica para actualizar el totañ segun la catnidadd seleccionadad de asients
         }
         private void GenerarMapa()
@@ -127,9 +140,20 @@ namespace CinePOS
 
             List<int> ocupadosIds = new CD_Boletos().ListarAsientosOcupados(_idFuncion);
 
-            
+            string filaActual = "";
+
             foreach (Asiento a in asientosDB) // creamos cada uno de los botonoes
             {
+
+                if (filaActual != "" && a.Fila != filaActual)
+                {
+
+                    // para esto buscamos el utimo control creado y le damos un salto 
+                    if (flyasientos.Controls.Count > 0)
+                    {
+                        flyasientos.SetFlowBreak(flyasientos.Controls[flyasientos.Controls.Count - 1], true);
+                    }
+                }
                 Button btn = new Button();
                 btn.Size = new Size(40, 40);
                 btn.Text = $"{a.Fila}{a.Numero}";
@@ -153,20 +177,10 @@ namespace CinePOS
                 }
 
                 flyasientos.Controls.Add(btn);
+                flyasientos.Controls.Add(btn);
+                filaActual = a.Fila;
             }
         }
-
-        private void BtnLimpiar_Click(object sender, EventArgs e)
-        {
-            asientosSeleccionados.Clear();
-
-            
-            GenerarMapa();
-        }
-
-
-
-
 
         private void FormVentaBoletos2_Load(object sender, EventArgs e)
         {
@@ -177,18 +191,37 @@ namespace CinePOS
             AsientoNegocio aNeg = new AsientoNegocio(); // Obtener la lista de asinetos de la base de datos prevvia a generar le mapa 
 
             asientosDB = aNeg.obtenerAsientos(objFuncion.ID_Sala);
-
            
             GenerarMapa();
-
             
             CargarDatosIniciales();
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void BtnLimpiarAsientos_Click(object sender, EventArgs e)
         {
+            asientosSeleccionados.Clear();
 
+            GenerarMapa();
+        }
+
+        private void BtnLimpiarCant_Click(object sender, EventArgs e)
+        {
+            UpDownAdto.Value = 0;
+            UpDownNiño.Value = 0;
+            UpDownGeneral.Value = 0;
+            asientosSeleccionados.Clear();
+            GenerarMapa();
+        }
+
+        private void BtnCompra_Click(object sender, EventArgs e)
+        {
+            if (asientosSeleccionados.Count != CantBlts)
+            {
+                MessageBox.Show($"Por favor, seleccione exactamente {CantBlts} asientos en el mapa antes de continuar.",
+                                "Asientos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
     }
 }

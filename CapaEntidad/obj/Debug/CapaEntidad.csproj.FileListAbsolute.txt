@@ -16,9 +16,3 @@ C:\Users\ljorg\Desktop\gitCinePOS\CapaEntidad\obj\Debug\CapaEntidad.csproj.Assem
 C:\Users\ljorg\Desktop\gitCinePOS\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\ljorg\Desktop\gitCinePOS\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\ljorg\Desktop\gitCinePOS\CapaEntidad\obj\Debug\CapaEntidad.pdb
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaEntidad\bin\Debug\CapaEntidad.dll
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaEntidad\bin\Debug\CapaEntidad.pdb
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaEntidad\obj\Debug\CapaEntidad.dll
-C:\Users\Pablo\OneDrive\Documentos\Tareas UADY\Verano 4.5\POO\CinePoosss\CinePOSREPO1\CapaEntidad\obj\Debug\CapaEntidad.pdb
