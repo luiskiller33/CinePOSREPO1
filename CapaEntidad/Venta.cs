@@ -13,5 +13,7 @@ namespace CapaEntidad
         public DateTime FechaVenta { get; set; }
         public decimal Total { get; set; }
 
+        public int ID_Funcion { get; set; } // nos va a servir para saber a que funcion pertenece la venta.
+
     }
 }

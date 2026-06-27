@@ -17,12 +17,15 @@ namespace CapaEntidad
 
         public int Estado { get; set; }
 
+        public decimal PrecioAplicado { get; set; } // esta propiedad se usa en FormVentas y lo asigna (no se obtiene de la tabla Asientos de la DB)
+
 
 
 
     }
 
-    public class AsientoEstado : Asiento
+    public class AsientoEstado : Asiento // este metodo no se usa todavia(no considerar en la logica del codigo) 
+
     {
         public bool EstaOcupado { get; set; }
     }

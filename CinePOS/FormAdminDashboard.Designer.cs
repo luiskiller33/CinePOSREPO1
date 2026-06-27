@@ -31,6 +31,7 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnPelis = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,6 +84,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ventas";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Yellow;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Location = new System.Drawing.Point(6, 94);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(158, 48);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "MENU BOLETOS";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -170,18 +182,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(308, 22);
             this.label2.TabIndex = 1;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Yellow;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(6, 94);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(158, 48);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "MENU BOLETOS";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FormAdminDashboard
             // 
