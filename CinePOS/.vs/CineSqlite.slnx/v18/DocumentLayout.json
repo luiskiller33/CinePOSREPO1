@@ -1,7 +1,33 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|c:\\users\\ljorg\\desktop\\cineposrepo1\\cinepos\\formcartelera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|solutionrelative:formcartelera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\formcartelera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|solutionrelative:formcartelera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\formventaboletos2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|solutionrelative:formventaboletos2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\formventaboletos2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{475B9218-EFB7-4DE7-916F-84B233F93DC7}|CinePOS.csproj|solutionrelative:formventaboletos2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C19C2A-9B63-434B-8C9E-AAF1A6A8EE72}|..\\CapaData\\CapaData.csproj|c:\\users\\ljorg\\desktop\\cineposrepo1\\capadata\\cd_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C19C2A-9B63-434B-8C9E-AAF1A6A8EE72}|..\\CapaData\\CapaData.csproj|c:\\users\\ljorg\\desktop\\cineposrepo1\\capadata\\cd_ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8C19C2A-9B63-434B-8C9E-AAF1A6A8EE72}|..\\CapaData\\CapaData.csproj|c:\\users\\ljorg\\desktop\\cineposrepo1\\capadata\\cd_registroventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +35,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +48,89 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormCartelera.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormCartelera.cs",
+              "RelativeDocumentMoniker": "FormCartelera.cs",
+              "ToolTip": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormCartelera.cs [Dise\u00F1o]",
+              "RelativeToolTip": "FormCartelera.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T05:24:52.151Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormCartelera.cs",
+              "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormCartelera.cs",
+              "RelativeDocumentMoniker": "FormCartelera.cs",
+              "ToolTip": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormCartelera.cs",
+              "RelativeToolTip": "FormCartelera.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T05:24:50.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormVentaBoletos2.cs",
+              "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormVentaBoletos2.cs",
+              "RelativeDocumentMoniker": "FormVentaBoletos2.cs",
+              "ToolTip": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormVentaBoletos2.cs",
+              "RelativeToolTip": "FormVentaBoletos2.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAYwFcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T05:05:24.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormVentaBoletos2.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormVentaBoletos2.cs",
+              "RelativeDocumentMoniker": "FormVentaBoletos2.cs",
+              "ToolTip": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CinePOS\\FormVentaBoletos2.cs [Dise\u00F1o]",
+              "RelativeToolTip": "FormVentaBoletos2.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T05:05:22.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CD_Venta.cs",
+              "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CapaData\\CD_Venta.cs",
+              "RelativeDocumentMoniker": "..\\CapaData\\CD_Venta.cs",
+              "ToolTip": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CapaData\\CD_Venta.cs",
+              "RelativeToolTip": "..\\CapaData\\CD_Venta.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T05:05:06.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CD_Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CapaData\\CD_Ticket.cs",
+              "RelativeDocumentMoniker": "..\\CapaData\\CD_Ticket.cs",
+              "ToolTip": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CapaData\\CD_Ticket.cs",
+              "RelativeToolTip": "..\\CapaData\\CD_Ticket.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T05:05:03.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CD_RegistroVentas.cs",
+              "DocumentMoniker": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CapaData\\CD_RegistroVentas.cs",
+              "RelativeDocumentMoniker": "..\\CapaData\\CD_RegistroVentas.cs",
+              "ToolTip": "C:\\Users\\ljorg\\Desktop\\CinePOSREPO1\\CapaData\\CD_RegistroVentas.cs",
+              "RelativeToolTip": "..\\CapaData\\CD_RegistroVentas.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T05:05:00.608Z"
             }
           ]
         }

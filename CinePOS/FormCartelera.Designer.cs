@@ -105,6 +105,7 @@
             // 
             this.flpHorarios.AutoScroll = true;
             this.flpHorarios.AutoSize = true;
+            this.flpHorarios.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpHorarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpHorarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpHorarios.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;

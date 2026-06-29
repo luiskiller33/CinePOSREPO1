@@ -37,6 +37,9 @@
             this.UpDownGeneral = new System.Windows.Forms.NumericUpDown();
             this.lblPrecioGeneral = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.LblTotal = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LblNumOcupados = new System.Windows.Forms.Label();
             this.LblNumDeshabilitados = new System.Windows.Forms.Label();
@@ -45,7 +48,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.BtnLimpiarCant = new System.Windows.Forms.Button();
-            this.LblTotal = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtnLimpiarAsientos = new System.Windows.Forms.Button();
@@ -57,19 +59,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flyasientos = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.PnlEdad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownNiño)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownAdto)).BeginInit();
             this.PnlGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownGeneral)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlEdad
@@ -158,6 +158,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(159, 766);
             this.panel1.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.LblTotal);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 676);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(159, 90);
+            this.panel5.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(7, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(141, 23);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Total:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblTotal
+            // 
+            this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotal.Location = new System.Drawing.Point(13, 54);
+            this.LblTotal.Name = "LblTotal";
+            this.LblTotal.Size = new System.Drawing.Size(132, 27);
+            this.LblTotal.TabIndex = 2;
+            this.LblTotal.Text = "Total$";
+            this.LblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
             // 
@@ -249,16 +279,6 @@
             this.BtnLimpiarCant.UseVisualStyleBackColor = false;
             this.BtnLimpiarCant.Click += new System.EventHandler(this.BtnLimpiarCant_Click);
             // 
-            // LblTotal
-            // 
-            this.LblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotal.Location = new System.Drawing.Point(13, 54);
-            this.LblTotal.Name = "LblTotal";
-            this.LblTotal.Size = new System.Drawing.Size(132, 27);
-            this.LblTotal.TabIndex = 2;
-            this.LblTotal.Text = "Total$";
-            this.LblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel4);
@@ -287,9 +307,10 @@
             // BtnLimpiarAsientos
             // 
             this.BtnLimpiarAsientos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.BtnLimpiarAsientos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnLimpiarAsientos.BackColor = System.Drawing.Color.Red;
             this.BtnLimpiarAsientos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnLimpiarAsientos.Location = new System.Drawing.Point(700, 26);
+            this.BtnLimpiarAsientos.ForeColor = System.Drawing.Color.White;
+            this.BtnLimpiarAsientos.Location = new System.Drawing.Point(33, 26);
             this.BtnLimpiarAsientos.Name = "BtnLimpiarAsientos";
             this.BtnLimpiarAsientos.Size = new System.Drawing.Size(277, 30);
             this.BtnLimpiarAsientos.TabIndex = 6;
@@ -302,7 +323,7 @@
             this.label9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Location = new System.Drawing.Point(381, 26);
+            this.label9.Location = new System.Drawing.Point(953, 29);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 23);
             this.label9.TabIndex = 3;
@@ -314,7 +335,7 @@
             this.label3.BackColor = System.Drawing.Color.Red;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(258, 26);
+            this.label3.Location = new System.Drawing.Point(830, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 23);
             this.label3.TabIndex = 3;
@@ -338,12 +359,12 @@
             // 
             this.BtnCompra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCompra.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCompra.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnCompra.Location = new System.Drawing.Point(1372, 10);
+            this.BtnCompra.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BtnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnCompra.ForeColor = System.Drawing.Color.Black;
+            this.BtnCompra.Location = new System.Drawing.Point(1372, 26);
             this.BtnCompra.Name = "BtnCompra";
-            this.BtnCompra.Size = new System.Drawing.Size(277, 55);
+            this.BtnCompra.Size = new System.Drawing.Size(277, 39);
             this.BtnCompra.TabIndex = 5;
             this.BtnCompra.Text = "Realizar Compra";
             this.BtnCompra.UseVisualStyleBackColor = false;
@@ -354,7 +375,7 @@
             this.label4.BackColor = System.Drawing.Color.Lime;
             this.label4.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 26);
+            this.label4.Location = new System.Drawing.Point(576, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(117, 23);
             this.label4.TabIndex = 4;
@@ -365,7 +386,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Gold;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(127, 26);
+            this.label1.Location = new System.Drawing.Point(699, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 23);
             this.label1.TabIndex = 1;
@@ -396,26 +417,6 @@
             this.flyasientos.Size = new System.Drawing.Size(1670, 661);
             this.flyasientos.TabIndex = 0;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.LblTotal);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 676);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(159, 90);
-            this.panel5.TabIndex = 7;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(7, 11);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(141, 23);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Total:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FormVentaBoletos2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -435,13 +436,13 @@
             this.PnlGeneral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UpDownGeneral)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -85,8 +85,8 @@ namespace CinePOS
             SalaNegocio sNeg = new SalaNegocio();
             string tipoReal = sNeg.ObtenerTipoSala(objFuncion.ID_Sala); // guardamos el tipo de sala detectadop en un string tiporeal
 
-            // messagebox para detecart rapidamente que funciona 
-            MessageBox.Show($"Detectando: Sala={objFuncion.NombreSala}, ID_Sala={objFuncion.ID_Sala}, TipoEncontrado={tipoReal}");
+            
+          
 
             PreciosNegocio pNeg = new PreciosNegocio();
             var precios = pNeg.ObtenerPrecios(tipoReal); // ahora si buscamos precios por tipo segun lo que encuientre nuestro metodod SalaNegocio
@@ -125,7 +125,8 @@ namespace CinePOS
                 if(c is Button btn)
                 {
                     if (btn.BackColor == Color.Red) ocupados++;
-                    else if (btn.BackColor == Color.Gold) ocupados++; // Los seleccionados cuentan como ocupados momentáneamente
+                    else if (btn.BackColor == Color.Gold) ocupados++; // los sleecionados cuentan como ocupados en ese momento pero no definitivamente hasta que se realice la compra
+
                     else if (btn.BackColor == Color.DimGray) desactivados++;
                     else if (btn.BackColor == Color.Lime) disponibles++;
                 }
@@ -142,7 +143,7 @@ namespace CinePOS
             Button btn = (Button)sender;
             Asiento asiento = (Asiento)btn.Tag;
 
-            // 1. Recalculamos cuántos boletos puede comprar el usuario
+            // recalculamoscuantos boletos puede seleccionar el usuario
             CantBlts = (int)(UpDownAdto.Value + UpDownNiño.Value + UpDownGeneral.Value);
 
             if (CantBlts == 0)
@@ -151,8 +152,8 @@ namespace CinePOS
                 return;
             }
 
-            // 2. Lógica de Selección
-            if (btn.BackColor == Color.Lime) // Seleccionando
+            //aqui hacemos la logica de la seleccion 
+            if (btn.BackColor == Color.Lime) 
             {
                 if (asientosSeleccionados.Count >= CantBlts)
                 {
@@ -162,7 +163,7 @@ namespace CinePOS
                 btn.BackColor = Color.Gold;
                 asientosSeleccionados.Add(asiento);
             }
-            else if (btn.BackColor == Color.Gold) // Deseleccionando
+            else if (btn.BackColor == Color.Gold) 
             {
                 btn.BackColor = Color.Lime;
                 asientosSeleccionados.Remove(asiento);
@@ -228,10 +229,10 @@ namespace CinePOS
         private void FormVentaBoletos2_Load(object sender, EventArgs e)
         {
             
-            ConfigInterfaz(); // configuramos la visibilidad de los paneles segun el tipo de sala 
+            ConfigInterfaz(); 
 
-            // 2. Obtener la lista de asientos de la BD (esencial antes de generar el mapa)
-            AsientoNegocio aNeg = new AsientoNegocio(); // Obtener la lista de asinetos de la base de datos prevvia a generar le mapa 
+            
+            AsientoNegocio aNeg = new AsientoNegocio(); 
 
             asientosDB = aNeg.obtenerAsientos(objFuncion.ID_Sala);
            
@@ -243,23 +244,22 @@ namespace CinePOS
 
         private void BtnLimpiarAsientos_Click(object sender, EventArgs e)
         {
-            // 1. Limpiamos la lista lógica
+            
             asientosSeleccionados.Clear();
 
-            // 2. En lugar de recrear todo el mapa (que es lento), recorremos lo que ya está en pantalla
+            
             foreach (Control c in flyasientos.Controls)
             {
                 if (c is Button btn && btn.BackColor == Color.Gold)
                 {
-                    btn.BackColor = Color.Lime; // Solo devolvemos los seleccionados a su color original
+                    btn.BackColor = Color.Lime; 
                 }
             }
 
-            // 3. Actualizamos los contadores visuales inmediatamente
+            
             ActualizarContadoresTiempoReal();
 
-            // 4. Aseguramos que el total se mantenga o resetee si es necesario
-            // Si al limpiar asientos también quieres limpiar las cantidades, llama a ActualizarTodo();
+           
             ActualizarTodo();
         }
 
@@ -320,9 +320,12 @@ namespace CinePOS
             //ahora si usamos la capanegocio para registrar los datos en las tablas Boletos, Ventas, DetalleVenta
             VentaNegocio vNeg = new VentaNegocio();
             int idGenerado = 0;
-            if (vNeg.Registrar(nuevaVenta, asientosSeleccionados, out idGenerado))
+            if (vNeg.Registrar(nuevaVenta, asientosSeleccionados, out idGenerado)) // ya usaremos el idgenerado
             {
-                MessageBox.Show($"VENTA REALIZADA. FOLIO: {idGenerado}", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FormTicket ticket = new FormTicket(idGenerado);
+
+                ticket.ShowDialog();
+
                 this.Close(); 
             }
             else

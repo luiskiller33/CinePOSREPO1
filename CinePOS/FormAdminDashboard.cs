@@ -43,6 +43,28 @@ namespace CinePOS
 
 
         }
+        private void AbrirFormPanel2(object formhijo) // creamos este metodo para abrir cualquier form
+        {
+
+
+            if (this.pnlContenedor2.Controls.Count > 0)
+            {
+                this.pnlContenedor2.Controls.RemoveAt(0);
+            }
+
+            Form fh = formhijo as Form; // inicializamos el objeto metido en el metodo(formhijo) 
+            fh.TopLevel = false; // para que sea una ventana metoda en el panellcontenedor blanco y no una ventana aparte
+            fh.FormBorderStyle = FormBorderStyle.None; // quitamos borde
+            fh.Dock = DockStyle.Fill; // para que aproveche todo el espacio 
+
+            this.pnlContenedor2.Controls.Add(fh);
+
+            this.pnlContenedor2.Tag = fh;
+
+            fh.Show();
+
+
+        }
 
         // aqui solo agregamos los botones que agregamos en el diseñador grafico, les añadimos su evento y usamos el metodo creado para abrir los formsdentro del panel contenedor 
 
@@ -69,7 +91,7 @@ namespace CinePOS
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AbrirFormPanel(new FormCartelera());
+            AbrirFormPanel2(new FormCartelera());
         }
 
 
@@ -103,7 +125,17 @@ namespace CinePOS
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AbrirFormPanel(new FormMenuBoletos());
+            AbrirFormPanel2(new FormRegistroVentas());
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlContenedor2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

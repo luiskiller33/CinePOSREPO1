@@ -47,7 +47,9 @@
     <Compile Include="PeliculaNegocio.cs" />
     <Compile Include="PreciosNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegVentasNegocio.cs" />
     <Compile Include="SalaNegocio.cs" />
+    <Compile Include="TicketNegocio.cs" />
     <Compile Include="UsuarioNegocio.cs" />
     <Compile Include="VentaNegocio.cs" />
   </ItemGroup>

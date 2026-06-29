@@ -231,6 +231,7 @@
             this.dgvSalas.Location = new System.Drawing.Point(12, 11);
             this.dgvSalas.Name = "dgvSalas";
             this.dgvSalas.ReadOnly = true;
+            this.dgvSalas.RowHeadersVisible = false;
             this.dgvSalas.RowHeadersWidth = 51;
             this.dgvSalas.RowTemplate.Height = 24;
             this.dgvSalas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
