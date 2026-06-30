@@ -22,15 +22,20 @@ namespace CapaData
                     try
                     {
                         // aqui insertamos la venra
-                        string queryVenta = @"INSERT INTO Ventas (ID_Usuario, FechaVenta, Total) 
-                                              VALUES (@idUsuario, @fecha, @total); 
-                                              SELECT last_insert_rowid();";
+                        string queryVenta = @"INSERT INTO Ventas (ID_Usuario, FechaVenta, Total, ID_Cliente) 
+                      VALUES (@idUsuario, @fecha, @total, @idCliente); 
+                      SELECT last_insert_rowid();";
 
                         using (SQLiteCommand cmd = new SQLiteCommand(queryVenta, con))
                         {
                             cmd.Parameters.AddWithValue("@idUsuario", objVenta.ID_Usuario);
                             cmd.Parameters.AddWithValue("@fecha", objVenta.FechaVenta);
                             cmd.Parameters.AddWithValue("@total", objVenta.Total);
+
+                            // si id cliente es 0 guardamos NULL si noel ID del cliente
+                            object idClienteParam = (objVenta.ID_Cliente > 0) ? (object)objVenta.ID_Cliente : DBNull.Value;
+                            cmd.Parameters.AddWithValue("@idCliente", idClienteParam);
+
                             idVentaGenerado = Convert.ToInt32(cmd.ExecuteScalar());
                         }
 

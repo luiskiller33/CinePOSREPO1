@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="CD_Asientos.cs" />
     <Compile Include="CD_Boletos.cs" />
+    <Compile Include="CD_Clientes.cs" />
     <Compile Include="CD_Precios.cs" />
     <Compile Include="CD_RegistroVentas.cs" />
     <Compile Include="CD_Ticket.cs" />

@@ -20,7 +20,6 @@ namespace CinePOS
             label2.Text = "Bienvenido: " + usuariologueado;
         }
 
-
         private void AbrirFormPanel(object formhijo) // creamos este metodo para abrir cualquier form
         {
 

@@ -59,6 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flyasientos = new System.Windows.Forms.FlowLayoutPanel();
+            this.texboxtarjetLealtad = new System.Windows.Forms.TextBox();
             this.PnlEdad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownNiño)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownAdto)).BeginInit();
@@ -148,6 +149,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.texboxtarjetLealtad);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.PnlGeneral);
             this.panel1.Controls.Add(this.groupBox1);
@@ -271,7 +273,7 @@
             this.BtnLimpiarCant.BackColor = System.Drawing.Color.Red;
             this.BtnLimpiarCant.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnLimpiarCant.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnLimpiarCant.Location = new System.Drawing.Point(0, 630);
+            this.BtnLimpiarCant.Location = new System.Drawing.Point(3, 603);
             this.BtnLimpiarCant.Name = "BtnLimpiarCant";
             this.BtnLimpiarCant.Size = new System.Drawing.Size(156, 26);
             this.BtnLimpiarCant.TabIndex = 6;
@@ -417,6 +419,15 @@
             this.flyasientos.Size = new System.Drawing.Size(1670, 661);
             this.flyasientos.TabIndex = 0;
             // 
+            // texboxtarjetLealtad
+            // 
+            this.texboxtarjetLealtad.Location = new System.Drawing.Point(12, 648);
+            this.texboxtarjetLealtad.Name = "texboxtarjetLealtad";
+            this.texboxtarjetLealtad.Size = new System.Drawing.Size(136, 22);
+            this.texboxtarjetLealtad.TabIndex = 8;
+            this.texboxtarjetLealtad.TextChanged += new System.EventHandler(this.texboxtarjetLealtad_TextChanged);
+            this.texboxtarjetLealtad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.texboxtarjetLealtad_KeyDown);
+            // 
             // FormVentaBoletos2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -436,6 +447,7 @@
             this.PnlGeneral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UpDownGeneral)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -480,5 +492,6 @@
         private System.Windows.Forms.Label LblNumDeshabilitados;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox texboxtarjetLealtad;
     }
 }

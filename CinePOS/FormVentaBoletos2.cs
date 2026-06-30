@@ -37,6 +37,8 @@ namespace CinePOS
         private decimal PrecioTotalGeneral = 0;
         private decimal PrecioTotal = 0;
 
+        private int idClienteActual = 0; // la venta igual a cero significa que no entra dentro de la lealtad
+
 
 
         public FormVentaBoletos2(int idfuncion) // el constructor este va a recibir el ID de la funcion
@@ -148,7 +150,7 @@ namespace CinePOS
 
             if (CantBlts == 0)
             {
-                MessageBox.Show("Primero indique cuántos boletos desea comprar.");
+                MessageBox.Show("Primero indique cuántos boletos desea comprar");
                 return;
             }
 
@@ -157,7 +159,7 @@ namespace CinePOS
             {
                 if (asientosSeleccionados.Count >= CantBlts)
                 {
-                    MessageBox.Show($"Solo puede seleccionar {CantBlts} asientos.");
+                    MessageBox.Show($"Solo puede seleccionar {CantBlts} asientos");
                     return;
                 }
                 btn.BackColor = Color.Gold;
@@ -204,7 +206,7 @@ namespace CinePOS
                 btn.Text = $"{a.Fila}{a.Numero}";
                 btn.Tag = a;
 
-                //Aplicamos estados
+                //definimos estados
                 if (a.Estado == 1) // desactivado 
                 {
                     btn.BackColor = Color.DimGray;
@@ -313,15 +315,27 @@ namespace CinePOS
                 ID_Usuario = 1, // seteamos el ID del usuario a 1 en este caso el mio pero la idea es que este se agarre directamente segun el usuario uqe ingresa 
                 ID_Funcion = _idFuncion,
                 FechaVenta = DateTime.Now, // seteamos la fecha a la de ese momento exacto 
-                Total = PrecioTotal
-
+                Total = PrecioTotal,
+                ID_Cliente = idClienteActual
             };
+
 
             //ahora si usamos la capanegocio para registrar los datos en las tablas Boletos, Ventas, DetalleVenta
             VentaNegocio vNeg = new VentaNegocio();
             int idGenerado = 0;
             if (vNeg.Registrar(nuevaVenta, asientosSeleccionados, out idGenerado)) // ya usaremos el idgenerado
             {
+                if (idClienteActual > 0)
+                {
+                    // 1 punto por cada $10 de compra
+                    int puntosGanados = (int)(PrecioTotal / 10);
+
+                    ClientesNegocio cNeg = new ClientesNegocio();
+                    cNeg.SumarPuntos(idClienteActual, puntosGanados);
+
+                    MessageBox.Show($"¡Venta realizada con éxito! El cliente sumó {puntosGanados} puntos a su tarjeta.");
+                }
+
                 FormTicket ticket = new FormTicket(idGenerado);
 
                 ticket.ShowDialog();
@@ -376,6 +390,50 @@ namespace CinePOS
 
         private void UpDownGeneral_ValueChanged(object sender, EventArgs e) => ActualizarTodo();
 
+        private void texboxtarjetLealtad_TextChanged(object sender, EventArgs e)
+        {
+        }
 
+        private void texboxtarjetLealtad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string numTarjeta = texboxtarjetLealtad.Text;
+                ClientesNegocio cNeg = new ClientesNegocio();
+
+                DataTable dt = cNeg.ObtenerCliente(numTarjeta);
+
+                if (dt.Rows.Count > 0)
+                {
+                    // hacemos el caso de tarjeta exisitentee
+                    idClienteActual = Convert.ToInt32(dt.Rows[0]["ID_Cliente"]);
+                    string nombre = dt.Rows[0]["Nombre"].ToString();
+                    MessageBox.Show($"Bienvenido de nuevo, {nombre}. Tienes {dt.Rows[0]["PuntosAcumulados"]} puntos.");
+                }
+                else
+                {
+                    // caso de ser tarjeta nueva
+                    DialogResult dialogResult = MessageBox.Show("Esta tarjeta no está registrada. ¿Deseas activarla como una tarjeta nueva?", "Nueva Tarjeta", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        
+                        bool registrado = cNeg.RegistrarNuevaTarjeta(numTarjeta, "Cliente Nuevo");
+
+                        if (registrado)
+                        {
+                            // volvemos a buscar dentro de la tabla el id que acabos de generar
+                            DataTable dtNuevo = cNeg.ObtenerCliente(numTarjeta);
+                            idClienteActual = Convert.ToInt32(dtNuevo.Rows[0]["ID_Cliente"]);
+                            MessageBox.Show("Tarjeta activada con éxito.");
+                        }
+                    }
+                    else
+                    {
+                        idClienteActual = 0;
+                    }
+                }
+            }
+
+        }
     }
 }

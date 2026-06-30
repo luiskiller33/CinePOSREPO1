@@ -15,5 +15,7 @@ namespace CapaEntidad
 
         public int ID_Funcion { get; set; } // nos va a servir para saber a que funcion pertenece la venta.
 
+        public int ID_Cliente { get; set; }
+
     }
 }
