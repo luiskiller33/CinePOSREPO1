@@ -3,12 +3,9 @@ using CapaEntidad;
 using CapaNegocio;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CinePOS
@@ -19,7 +16,7 @@ namespace CinePOS
 
         private Funcion objFuncion;
         private List<Asiento> asientosSeleccionados = new List<Asiento>();
-        
+
         private List<Asiento> asientosDB = new List<Asiento>();
         private List<int> asientosOcupadosIds = new List<int>();
 
@@ -56,7 +53,7 @@ namespace CinePOS
             AsientoNegocio aNeg = new AsientoNegocio();
             var todosLosAsientos = aNeg.obtenerAsientos(objFuncion.ID_Sala);
 
-           
+
             asientosOcupadosIds = new CD_Boletos().ListarAsientosOcupados(_idFuncion);
 
             countDesactivados = todosLosAsientos.Count(a => a.Estado == 1);
@@ -87,8 +84,8 @@ namespace CinePOS
             SalaNegocio sNeg = new SalaNegocio();
             string tipoReal = sNeg.ObtenerTipoSala(objFuncion.ID_Sala); // guardamos el tipo de sala detectadop en un string tiporeal
 
-            
-          
+
+
 
             PreciosNegocio pNeg = new PreciosNegocio();
             var precios = pNeg.ObtenerPrecios(tipoReal); // ahora si buscamos precios por tipo segun lo que encuientre nuestro metodod SalaNegocio
@@ -122,9 +119,9 @@ namespace CinePOS
             int disponibles = 0;
             int desactivados = 0;
 
-            foreach(Control c in flyasientos.Controls)
+            foreach (Control c in flyasientos.Controls)
             {
-                if(c is Button btn)
+                if (c is Button btn)
                 {
                     if (btn.BackColor == Color.Red) ocupados++;
                     else if (btn.BackColor == Color.Gold) ocupados++; // los sleecionados cuentan como ocupados en ese momento pero no definitivamente hasta que se realice la compra
@@ -150,22 +147,28 @@ namespace CinePOS
 
             if (CantBlts == 0)
             {
-                MessageBox.Show("Primero indique cuántos boletos desea comprar");
+                MessageBox.Show("Primero indique cuántos boletos desea comprar", "Cantidad Invalida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             //aqui hacemos la logica de la seleccion 
-            if (btn.BackColor == Color.Lime) 
+            if (btn.BackColor == Color.Lime)
             {
+                if (CantBlts > countDisponibles)
+                {
+                    MessageBox.Show($"Estas vendiendo {CantBlts} boletos y solamente hay disponibles {countDisponibles} boletos", "Cantidad Invalida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
                 if (asientosSeleccionados.Count >= CantBlts)
                 {
-                    MessageBox.Show($"Solo puede seleccionar {CantBlts} asientos");
+                    MessageBox.Show($"Solo puede seleccionar {CantBlts} asientos", "Cantidad Invalida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 btn.BackColor = Color.Gold;
                 asientosSeleccionados.Add(asiento);
             }
-            else if (btn.BackColor == Color.Gold) 
+            else if (btn.BackColor == Color.Gold)
             {
                 btn.BackColor = Color.Lime;
                 asientosSeleccionados.Remove(asiento);
@@ -180,7 +183,7 @@ namespace CinePOS
 
             asientosSeleccionados.Clear();
 
-            
+
             AsientoNegocio aNeg = new AsientoNegocio();
 
             asientosDB = aNeg.obtenerAsientos(objFuncion.ID_Sala);
@@ -230,14 +233,14 @@ namespace CinePOS
 
         private void FormVentaBoletos2_Load(object sender, EventArgs e)
         {
-            
-            ConfigInterfaz(); 
 
-            
-            AsientoNegocio aNeg = new AsientoNegocio(); 
+            ConfigInterfaz();
+
+
+            AsientoNegocio aNeg = new AsientoNegocio();
 
             asientosDB = aNeg.obtenerAsientos(objFuncion.ID_Sala);
-           
+
             GenerarMapa();
             ActualizarContadoresTiempoReal();
             CargarDatosIniciales();
@@ -246,22 +249,22 @@ namespace CinePOS
 
         private void BtnLimpiarAsientos_Click(object sender, EventArgs e)
         {
-            
+
             asientosSeleccionados.Clear();
 
-            
+
             foreach (Control c in flyasientos.Controls)
             {
                 if (c is Button btn && btn.BackColor == Color.Gold)
                 {
-                    btn.BackColor = Color.Lime; 
+                    btn.BackColor = Color.Lime;
                 }
             }
 
-            
+
             ActualizarContadoresTiempoReal();
 
-           
+
             ActualizarTodo();
         }
 
@@ -285,66 +288,74 @@ namespace CinePOS
                 return;
             }
 
-            
+
             if (asientosSeleccionados.Count != CantBlts) // aqui validamos que la cantidad de asientos seleccionados coincida con la de los numericupdonw
 
-            { 
+            {
                 MessageBox.Show($"Selecciona exactamente: {CantBlts} asientos en el mapa.", "asientos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // ignar precios a cada asiento (para que CD_Venta sepa qué valor insertar)
-            // hacemos esto poruqe la clase asiento no guarda el precio tal cual, si no que se calcula en ese instante 
-            
-            FuncionNegocio fNeg = new FuncionNegocio();
-            objFuncion = fNeg.ObtenerDetalle(_idFuncion);
-            SalaNegocio sNeg = new SalaNegocio();
-            string tipoReal = sNeg.ObtenerTipoSala(objFuncion.ID_Sala);
-            PreciosNegocio pNeg = new PreciosNegocio();
-            var precios = pNeg.ObtenerPrecios(tipoReal);
-
-            // asignacion de precios a la lista antes de enviarlos a la DB 
-            int index = 0;
-            for (int i = 0; i < CantBltAdto; i++) asientosSeleccionados[index++].PrecioAplicado = precios.PrecioAdulto;
-            for (int i = 0; i < CantBltNiño; i++) asientosSeleccionados[index++].PrecioAplicado = precios.PrecioNino;
-            for (int i = 0; i < CantBltGeneral; i++) asientosSeleccionados[index++].PrecioAplicado = precios.PrecioEspecial;
-
-            
-            Venta nuevaVenta = new Venta // usamos nuestro objeto venta
+            DialogResult confirmar = MessageBox.Show($"¿Deseac confirmar la venta de {CantBlts} boletos?", "Confirmar Venta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (confirmar == DialogResult.Cancel)
             {
-                ID_Usuario = 1, // seteamos el ID del usuario a 1 en este caso el mio pero la idea es que este se agarre directamente segun el usuario uqe ingresa 
-                ID_Funcion = _idFuncion,
-                FechaVenta = DateTime.Now, // seteamos la fecha a la de ese momento exacto 
-                Total = PrecioTotal,
-                ID_Cliente = idClienteActual
-            };
-
-
-            //ahora si usamos la capanegocio para registrar los datos en las tablas Boletos, Ventas, DetalleVenta
-            VentaNegocio vNeg = new VentaNegocio();
-            int idGenerado = 0;
-            if (vNeg.Registrar(nuevaVenta, asientosSeleccionados, out idGenerado)) // ya usaremos el idgenerado
-            {
-                if (idClienteActual > 0)
-                {
-                    // 1 punto por cada $10 de compra
-                    int puntosGanados = (int)(PrecioTotal / 10);
-
-                    ClientesNegocio cNeg = new ClientesNegocio();
-                    cNeg.SumarPuntos(idClienteActual, puntosGanados);
-
-                    MessageBox.Show($"¡Venta realizada con éxito! El cliente sumó {puntosGanados} puntos a su tarjeta.");
-                }
-
-                FormTicket ticket = new FormTicket(idGenerado);
-
-                ticket.ShowDialog();
-
-                this.Close(); 
+                MessageBox.Show("Venta Cancelada", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            else if (confirmar == DialogResult.OK)
             {
-                MessageBox.Show("Hubo error al realizar venta, intente de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // asignar precios a cada asiento (para que CD_Venta sepa qué valor insertar)
+                // hacemos esto poruqe la clase asiento no guarda el precio tal cual, si no que se calcula en ese instante 
+
+                FuncionNegocio fNeg = new FuncionNegocio();
+                objFuncion = fNeg.ObtenerDetalle(_idFuncion);
+                SalaNegocio sNeg = new SalaNegocio();
+                string tipoReal = sNeg.ObtenerTipoSala(objFuncion.ID_Sala);
+                PreciosNegocio pNeg = new PreciosNegocio();
+                var precios = pNeg.ObtenerPrecios(tipoReal);
+
+                // asignacion de precios a la lista antes de enviarlos a la DB 
+                int index = 0;
+                for (int i = 0; i < CantBltAdto; i++) asientosSeleccionados[index++].PrecioAplicado = precios.PrecioAdulto;
+                for (int i = 0; i < CantBltNiño; i++) asientosSeleccionados[index++].PrecioAplicado = precios.PrecioNino;
+                for (int i = 0; i < CantBltGeneral; i++) asientosSeleccionados[index++].PrecioAplicado = precios.PrecioEspecial;
+
+
+                Venta nuevaVenta = new Venta // usamos nuestro objeto venta
+                {
+                    ID_Usuario = 1, // seteamos el ID del usuario a 1 en este caso el mio pero la idea es que este se agarre directamente segun el usuario uqe ingresa 
+                    ID_Funcion = _idFuncion,
+                    FechaVenta = DateTime.Now, // seteamos la fecha a la de ese momento exacto 
+                    Total = PrecioTotal,
+                    ID_Cliente = idClienteActual
+                };
+
+
+                //ahora si usamos la capanegocio para registrar los datos en las tablas Boletos, Ventas, DetalleVenta
+                VentaNegocio vNeg = new VentaNegocio();
+                int idGenerado = 0;
+                if (vNeg.Registrar(nuevaVenta, asientosSeleccionados, out idGenerado)) // ya usaremos el idgenerado
+                {
+                    if (idClienteActual > 0)
+                    {
+                        // 1 punto por cada $10 de compra
+                        int puntosGanados = (int)(PrecioTotal / 10);
+
+                        ClientesNegocio cNeg = new ClientesNegocio();
+                        cNeg.SumarPuntos(idClienteActual, puntosGanados);
+
+                        MessageBox.Show($"¡Venta realizada con éxito! El cliente sumó {puntosGanados} puntos a su tarjeta.");
+                    }
+
+                    FormTicket ticket = new FormTicket(idGenerado);
+
+                    ticket.ShowDialog();
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Hubo error al realizar venta, intente de nuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -365,7 +376,7 @@ namespace CinePOS
             }
             if (CantBlts == 0) PrecioTotal = 0;
 
-            
+
             // ahora calculamos los totales
             CantBltAdto = (int)UpDownAdto.Value;
             CantBltNiño = (int)UpDownNiño.Value;
@@ -381,7 +392,7 @@ namespace CinePOS
             LblTotal.Text = $"{PrecioTotal:C2}";
 
 
-             
+
         }
 
         private void UpDownAdto_ValueChanged(object sender, EventArgs e) => ActualizarTodo();
@@ -416,7 +427,7 @@ namespace CinePOS
                     DialogResult dialogResult = MessageBox.Show("Esta tarjeta no está registrada. ¿Deseas activarla como una tarjeta nueva?", "Nueva Tarjeta", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        
+
                         bool registrado = cNeg.RegistrarNuevaTarjeta(numTarjeta, "Cliente Nuevo");
 
                         if (registrado)

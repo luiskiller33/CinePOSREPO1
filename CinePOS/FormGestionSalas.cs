@@ -48,12 +48,12 @@ namespace CinePOS
             {
                 if (string.IsNullOrWhiteSpace(txtNombreSala.Text))
                 {
-                    MessageBox.Show("El nombre de la sala es oblig"); // obligamos a escriri en nombre sala para guardar
+                    MessageBox.Show("El nombre de la sala es obligatorio", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); // obligamos a escriri en nombre sala para guardar
                     return;
                 }
                 SalaNegocio negocio = new SalaNegocio();
                 negocio.RegistrarSalaCompleta(txtNombreSala.Text, cmbTipoSala.Text, (int)numFilas.Value, (int)numColumnas.Value);
-                MessageBox.Show("Sala y asientos generados correctamente");
+                MessageBox.Show("Sala y asientos generados correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ListarSalas();
                 // volvemos a cargar las salas en el grid para ver los cambios

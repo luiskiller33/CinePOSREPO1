@@ -76,7 +76,6 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones Panel Derecho";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // button4
             // 
@@ -191,7 +190,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1232, 82);
             this.panel1.TabIndex = 4;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -211,7 +209,6 @@
             this.pnlContenedor2.Name = "pnlContenedor2";
             this.pnlContenedor2.Size = new System.Drawing.Size(608, 607);
             this.pnlContenedor2.TabIndex = 6;
-            this.pnlContenedor2.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenedor2_Paint);
             // 
             // splitContainer1
             // 

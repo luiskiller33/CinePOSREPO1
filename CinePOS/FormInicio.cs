@@ -41,7 +41,9 @@ namespace CinePOS
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-
+            FormCartelera cartelera = new FormCartelera();
+            cartelera.Show();
+            cartelera.WindowState = FormWindowState.Maximized;
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)// este es el evento del boton de la derecha, el de la izquierda todavia no se habilita pq no hay funcionalidad ahi todavia

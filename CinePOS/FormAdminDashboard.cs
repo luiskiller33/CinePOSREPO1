@@ -117,24 +117,9 @@ namespace CinePOS
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             AbrirFormPanel2(new FormRegistroVentas());
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pnlContenedor2_Paint(object sender, PaintEventArgs e)
-        {
 
         }
     }
